@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de" id="mainHtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praxis Dr. med. Univ. Istanbul Cem Dinc | Hamm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .gradient-text { background: linear-gradient(90deg, #1e40af, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-pattern { background-color: #f8fafc; background-image: radial-gradient(#e2e8f0 0.5px, transparent 0.5px); background-size: 24px 24px; }
+        .lang-active { background: #1e40af; color: white; box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3); }
+    </style>
+</head>
+<body class="bg-[#FBFDFF] text-slate-900 leading-relaxed">
+
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card p-4 rounded-2xl shadow-sm">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                    <i data-lucide="stethoscope"></i>
+                </div>
+                <div>
+                    <span class="block font-bold text-lg leading-none text-slate-900">Dr. Cem Dinc</span>
+                    <span id="sub-title" class="text-[10px] uppercase tracking-[0.2em] text-blue-600 font-semibold italic">Allgemeinmedizin</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <div class="flex bg-slate-100 p-1 rounded-xl">
+                    <button onclick="switchLang('de')" id="btn-de" class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all lang-active">DE</button>
+                    <button onclick="switchLang('tr')" id="btn-tr" class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all">TR</button>
+                </div>
+                <a href="tel:02381464121" class="bg-slate-900 text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition flex items-center gap-2">
+                    <i data-lucide="phone-call" class="w-4 h-4"></i>
+                    <span id="nav-call">Anrufen</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 px-6 hero-pattern">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <span id="badge" class="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">Premium Hausarzt Praxis</span>
+                <h1 id="hero-title" class="text-5xl lg:text-7xl font-bold text-slate-900 mb-8 leading-[1.1]">
+                    Moderne Medizin mit <span class="gradient-text">Herz & Verstand.</span>
+                </h1>
+                <p id="hero-desc" class="text-lg text-slate-500 mb-10 max-w-lg">
+                    Ihre Gesundheit verdient erstklassige Betreuung. In unserer modern ausgestatteten Praxis in Hamm bieten wir Ihnen medizinische Exzellenz.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-3 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                        <i data-lucide="languages" class="text-blue-600"></i>
+                        <span id="feat-lang" class="text-sm font-medium italic">Deutsch, Türkçe</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                        <i data-lucide="accessibility" class="text-blue-600"></i>
+                        <span id="feat-access" class="text-sm font-medium italic">Barrierefreier Zugang</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="aspect-square bg-blue-100 rounded-[3rem] overflow-hidden shadow-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000" alt="Clinic" class="object-cover w-full h-full hover:scale-105 transition duration-700">
+                    <div id="live-status-card" class="absolute bottom-6 left-6 right-6 glass-card p-6 rounded-2xl shadow-xl border-l-4">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p id="status-label" class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter mb-1">Status</p>
+                                <p id="status-val" class="font-bold text-lg italic tracking-tight uppercase">Laden...</p>
+                            </div>
+                            <div id="status-icon-container" class="p-2 rounded-lg bg-white/50">
+                                <i data-lucide="clock" class="text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 id="services-title" class="text-3xl font-bold mb-4">Unsere medizinischen Leistungen</h2>
+            <div class="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="group p-10 rounded-[2.5rem] bg-[#F8FAFC] hover:bg-white hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-blue-50">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+                <h3 id="s1-title" class="text-xl font-bold mb-4 italic">Check-ups</h3>
+                <p id="s1-desc" class="text-slate-500 text-sm leading-relaxed">Umfassende Vorsorgeuntersuchungen zur Früherkennung und Erhaltung Ihrer Vitalität.</p>
+            </div>
+            <div class="group p-10 rounded-[2.5rem] bg-[#F8FAFC] hover:bg-white hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-blue-50">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <i data-lucide="user-plus"></i>
+                </div>
+                <h3 id="s2-title" class="text-xl font-bold mb-4 italic">Hausarzt</h3>
+                <p id="s2-desc" class="text-slate-500 text-sm leading-relaxed">Kontinuierliche Begleitung als erster Ansprechpartner für alle gesundheitlichen Fragen.</p>
+            </div>
+            <div class="group p-10 rounded-[2.5rem] bg-[#F8FAFC] hover:bg-white hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-blue-50">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <h3 id="s3-title" class="text-xl font-bold mb-4 italic">Modern & Sicher</h3>
+                <p id="s3-desc" class="text-slate-500 text-sm leading-relaxed">Eine barrierefreie Praxis mit modernster Ausstattung in Hamm-Herringen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-slate-900 rounded-[3rem] mx-4 mb-10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 relative z-10">
+            <div>
+                <h2 id="contact-head" class="text-4xl font-bold text-white mb-6">Termine & Kontakt</h2>
+                <p id="contact-sub" class="text-slate-400 mb-10 text-lg">Um Wartezeiten zu vermeiden, bitten wir Sie um eine telefonische Terminvereinbarung.</p>
+                <div class="space-y-8">
+                    <div class="flex items-center gap-6">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-lg">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Telefon</p>
+                            <a href="tel:02381464121" class="text-3xl font-bold text-white hover:text-blue-400 transition">02381 464121</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-800 flex items-center justify-center text-blue-500">
+                            <i data-lucide="map"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Adresse</p>
+                            <p class="text-xl text-white">Neufchateaustraße 2, 59077 Hamm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white/5 backdrop-blur-md p-10 rounded-[2.5rem] border border-white/10 shadow-2xl">
+                <h3 id="hours-title" class="text-white font-bold mb-8 flex items-center gap-3 text-2xl">
+                    <i data-lucide="calendar" class="text-blue-500"></i> Sprechzeiten
+                </h3>
+                <div id="hours-list" class="space-y-4 text-slate-300">
+                    </div>
+                <p id="note" class="mt-8 text-xs text-slate-500 italic"></p>
+            </div>
+        </div>
+        <div class="absolute -top-20 -right-20 w-80 h-80 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+
+        const data = {
+            de: {
+                subtitle: "Allgemeinmedizin",
+                navCall: "Anrufen",
+                badge: "Premium Hausarzt Praxis",
+                heroTitle: "Moderne Medizin mit <span class='gradient-text'>Herz & Verstand.</span>",
+                heroDesc: "Ihre Gesundheit verdient erstklassige Betreuung. In unserer modern ausgestatteten Praxis in Hamm bieten wir Ihnen medizinische Exzellenz.",
+                featLang: "Deutsch, Türkçe",
+                featAccess: "Barrierefreier Zugang",
+                statusLabel: "Status",
+                statusOpen: "Jetzt Geöffnet",
+                statusClosed: "Derzeit Geschlossen",
+                servicesTitle: "Unsere Leistungen",
+                s1Title: "Check-ups",
+                s1Desc: "Umfassende Vorsorgeuntersuchungen zur Früherkennung und Erhaltung Ihrer Vitalität.",
+                s2Title: "Hausarzt",
+                s2Desc: "Kontinuierliche Begleitung als erster Ansprechpartner für alle gesundheitlichen Fragen.",
+                s3Title: "Modern & Sicher",
+                s3Desc: "Eine barrierefreie Praxis mit modernster Ausstattung in Hamm-Herringen.",
+                contactHead: "Termine & Kontakt",
+                contactSub: "Um Wartezeiten zu vermeiden, bitten wir Sie um eine telefonische Terminvereinbarung.",
+                hoursTitle: "Sprechzeiten",
+                note: "* Termine nur nach Vereinbarung",
+                daysNames: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+                hoursArr: ["08:00 – 15:00", "08:00 – 14:00", "08:00 – 13:00", "14:00 – 18:00", "08:00 – 14:00", "Geschlossen", "Geschlossen"]
+            },
+            tr: {
+                subtitle: "Genel Tıp",
+                navCall: "Arayın",
+                badge: "Birinci Sınıf Aile Hekimliği",
+                heroTitle: "Modern Tıp, <span class='gradient-text'>Sevgi ve Bilgiyle.</span>",
+                heroDesc: "Sağlığınız en iyi bakımı hak ediyor. Hamm'daki modern donanımlı muayenehanemizde size tıbbi mükemmellik sunuyoruz.",
+                featLang: "Almanca, Türkçe",
+                featAccess: "Engelsiz Erişim",
+                statusLabel: "Durum",
+                statusOpen: "Şu An Açık",
+                statusClosed: "Şu An Kapalı",
+                servicesTitle: "Hizmetlerimiz",
+                s1Title: "Check-up",
+                s1Desc: "Erken teşhis ve zindeliğinizin korunması için kapsamlı önleyici muayeneler.",
+                s2Title: "Aile Hekimi",
+                s2Desc: "Tüm sağlık sorularınız için ilk muhatabınız olarak sürekli destek.",
+                s3Title: "Modern ve Güvenli",
+                s3Desc: "Hamm-Herringen'de modern donanıma sahip engelsiz bir muayenehane.",
+                contactHead: "Randevu ve İletişim",
+                contactSub: "Bekleme sürelerini önlemek için telefonla randevu almanızı rica ederiz.",
+                hoursTitle: "Çalışma Saatleri",
+                note: "* Randevular yalnızca telefonla alınır",
+                daysNames: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
+                hoursArr: ["08:00 – 15:00", "08:00 – 14:00", "08:00 – 13:00", "14:00 – 18:00", "08:00 – 14:00", "Kapalı", "Kapalı"]
+            }
+        };
+
+        function checkClinicStatus() {
+            const now = new Date();
+            const day = now.getDay();
+            const hour = now.getHours();
+            const min = now.getMinutes();
+            const time = hour + min/60;
+
+            const schedule = { 1:[8,15], 2:[8,14], 3:[8,13], 4:[14,18], 5:[8,14], 6:[0,0], 0:[0,0] };
+            const today = schedule[day];
+            const isOpen = today && time >= today[0] && time < today[1];
+
+            const statusVal = document.getElementById('status-val');
+            const statusCard = document.getElementById('live-status-card');
+            const lang = document.getElementById('mainHtml').getAttribute('lang');
+
+            if (isOpen) {
+                statusVal.innerText = data[lang].statusOpen;
+                statusVal.className = "font-bold text-lg italic tracking-tight uppercase text-green-600";
+                statusCard.style.borderLeftColor = "#16a34a";
+            } else {
+                statusVal.innerText = data[lang].statusClosed;
+                statusVal.className = "font-bold text-lg italic tracking-tight uppercase text-red-600";
+                statusCard.style.borderLeftColor = "#dc2626";
+            }
+        }
+
+        function switchLang(lang) {
+            document.getElementById('mainHtml').setAttribute('lang', lang);
+            const t = data[lang];
+            
+            document.getElementById('sub-title').innerText = t.subtitle;
+            document.getElementById('nav-call').innerText = t.navCall;
+            document.getElementById('badge').innerText = t.badge;
+            document.getElementById('hero-title').innerHTML = t.heroTitle;
+            document.getElementById('hero-desc').innerText = t.heroDesc;
+            document.getElementById('feat-lang').innerText = t.featLang;
+            document.getElementById('feat-access').innerText = t.featAccess;
+            document.getElementById('status-label').innerText = t.statusLabel;
+            document.getElementById('services-title').innerText = t.servicesTitle;
+            document.getElementById('s1-title').innerText = t.s1Title;
+            document.getElementById('s1-desc').innerText = t.s1Desc;
+            document.getElementById('s2-title').innerText = t.s2Title;
+            document.getElementById('s2-desc').innerText = t.s2Desc;
+            document.getElementById('s3-title').innerText = t.s3Title;
+            document.getElementById('s3-desc').innerText = t.s3Desc;
+            document.getElementById('contact-head').innerText = t.contactHead;
+            document.getElementById('contact-sub').innerText = t.contactSub;
+            document.getElementById('hours-title').innerHTML = `<i data-lucide="calendar" class="text-blue-500"></i> ${t.hoursTitle}`;
+            document.getElementById('note').innerText = t.note;
+
+            const hoursList = document.getElementById('hours-list');
+            const currentDay = (new Date().getDay() || 7) - 1;
+
+            hoursList.innerHTML = t.daysNames.map((day, i) => {
+                const isToday = i === currentDay;
+                return `
+                    <div class="flex justify-between items-center pb-2 border-b border-white/5 ${isToday ? 'text-blue-400 font-bold bg-blue-500/5 p-2 rounded-lg' : ''}">
+                        <span class="text-sm uppercase tracking-wider">${day}</span>
+                        <span class="text-sm font-mono">${t.hoursArr[i]}</span>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('btn-de').className = lang === 'de' ? 'px-4 py-1.5 rounded-lg text-sm font-semibold transition-all lang-active' : 'px-4 py-1.5 rounded-lg text-sm font-semibold transition-all';
+            document.getElementById('btn-tr').className = lang === 'tr' ? 'px-4 py-1.5 rounded-lg text-sm font-semibold transition-all lang-active' : 'px-4 py-1.5 rounded-lg text-sm font-semibold transition-all';
+            
+            checkClinicStatus();
+            lucide.createIcons();
+        }
+
+        window.onload = () => switchLang('de');
+        setInterval(checkClinicStatus, 60000);
+    </script>
+</body>
+</html>
